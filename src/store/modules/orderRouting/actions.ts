@@ -80,7 +80,6 @@ const actions: ActionTree<OrderRoutingState, RootState> = {
   },
 
   async fetchCurrentRoutingGroup({ dispatch }, routingGroupId) {
-    emitter.emit("presentLoader", { message: "Fetching rules", backdropDismiss: false })
     let currentGroup = {} as any
 
     try {
@@ -101,8 +100,6 @@ const actions: ActionTree<OrderRoutingState, RootState> = {
 
     // Fetching the schedule information for the group
     await dispatch("fetchCurrentGroupSchedule", { routingGroupId, currentGroup })
-
-    emitter.emit("dismissLoader")
   },
 
   async fetchCurrentGroupSchedule({ commit }, payload) {
