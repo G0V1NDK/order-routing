@@ -736,7 +736,7 @@ async function saveRoutingGroup() {
 }
 
 async function updateRoutingGroup(payload: any) {
-  emitter.emit("presentLoader", { message: "Updating... ", backdropDismiss: false })
+  emitter.emit("presentLoader", { message: "Updating...", backdropDismiss: false })
   let routingGroupId = ''
   try {
     const resp = await OrderRoutingService.updateRoutingGroup(payload);
