@@ -142,22 +142,29 @@ const actions: ActionTree<UtilState, RootState> = {
     if(Object.keys(categories).length) {
       return;
     }
-
-    const payload = {
+    let pageIndex = 0
+    const pageSize = 500
+    const basePayload = {
       productStoreId: store.state.orderRouting.currentGroup.productStoreId,
-      pageSize: 500
+      pageSize
     }
 
     try {
-      const resp = await UtilService.fetchCategories(payload);
-
-      if(!hasError(resp) && resp.data.length) {
-        categories = resp.data.reduce((categories: any, category: any) => {
-          categories[category.productCategoryId] = category
-          return categories
-        }, {})
-      }
-    } catch(err) {
+      let resp: any
+      do {
+        resp = await UtilService.fetchCategories({
+          ...basePayload,
+          pageIndex
+        })
+        if (!hasError(resp) && resp.data.length) {
+          categories = resp.data.reduce((acc: any, category: any) => {
+            acc[category.productCategoryId] = category
+            return acc
+          }, categories)
+        }
+        pageIndex++
+      } while (resp?.data?.length === pageSize)
+    } catch (err) {
       logger.error(err)
     }
 
