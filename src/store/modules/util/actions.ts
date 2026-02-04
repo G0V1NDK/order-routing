@@ -7,7 +7,6 @@ import * as types from "./mutation-types"
 import { UtilService } from "@/services/UtilService"
 import { EnumerationAndType } from "@/types"
 import store from "@/store"
-import {UTIL_CATEGORIES_UPDATED} from "./mutation-types";
 
 const actions: ActionTree<UtilState, RootState> = {
   async fetchEnums({ commit, state }, payload) {
@@ -64,7 +63,6 @@ const actions: ActionTree<UtilState, RootState> = {
               "description": "Facility group"
             } as any
           }
-          console.log('respEnums', respEnums)
           enums = {
             ...enums,
             ...respEnums
