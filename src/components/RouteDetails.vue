@@ -119,9 +119,9 @@ const filterOptions = [{
   code: "facilityId",
   label: "Queue"
 }, {
-  enumId: "OIP_PROD_CATEGORY_EXCLUDED",
+  enumId: "PROD_CATEGORY_EXCLUDED",
   code: "productCategoryId",
-  label: "Queue"
+  label: "Product Category"
 }, {
   enumId: "QUEUE_EXCLUDED",
   code: "facilityId",
