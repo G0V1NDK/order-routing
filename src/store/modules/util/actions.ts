@@ -292,6 +292,21 @@ const actions: ActionTree<UtilState, RootState> = {
 
   async updateFacillityGroups({ commit }) {
     commit(types.UTIL_FACILITY_GROUP_UPDATED, {})
+  },
+
+  async fetchProductIdentifiers({ commit }) {
+    try {
+      const resp = await UtilService.getProductStoreInfo();
+
+      if (!hasError(resp) && resp.data) {
+        commit(types.UTIL_PRODUCT_IDENTIFIER_UPDATED, {
+          primary: resp.data.primaryProductIdentifier || "productId",
+          secondary: resp.data.secondaryProductIdentifier || "internalName"
+        })
+      }
+    } catch (err) {
+      logger.error("Failed to fetch product identifiers", err)
+    }
   }
 }
 

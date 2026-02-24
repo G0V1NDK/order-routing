@@ -22,12 +22,19 @@ const mutations: MutationTree<UtilState> = {
     state.facilityGroups = {}
     state.statuses = {}
     state.carriers = {}
+    state.productIdentifier = {
+      primary: "",
+      secondary: ""
+    }
   },
   [types.UTIL_STATUSES_UPDATED](state, payload) {
     state.statuses = payload
   },
   [types.UTIL_CARRIERS_UPDATED](state, payload) {
     state.carriers = payload
+  },
+  [types.UTIL_PRODUCT_IDENTIFIER_UPDATED](state, payload) {
+    state.productIdentifier = payload
   }
 }
 export default mutations;

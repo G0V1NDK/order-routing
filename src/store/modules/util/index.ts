@@ -13,7 +13,11 @@ const utilModule: Module<UtilState, RootState> = {
     shippingMethods: {},
     facilityGroups: {},
     statuses: {},
-    carriers: {}
+    carriers: {},
+    productIdentifier: {
+      primary: "",
+      secondary: ""
+    }
   },
   getters,
   actions,

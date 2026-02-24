@@ -36,6 +36,9 @@ const getters: GetterTree<UtilState, RootState> = {
   },
   getCarriers(state) {
     return state.carriers
+  },
+  getProductIdentifier(state) {
+    return state.productIdentifier
   }
 }
 

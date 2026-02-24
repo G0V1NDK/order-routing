@@ -11,4 +11,8 @@ export default interface UtilState {
   facilityGroups: object;
   statuses: any;
   carriers: any;
+  productIdentifier: {
+    primary: string;
+    secondary: string;
+  };
 }
