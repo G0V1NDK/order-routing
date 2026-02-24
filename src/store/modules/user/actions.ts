@@ -135,6 +135,7 @@ const actions: ActionTree<UserState, RootState> = {
     commit(types.USER_CURRENT_ECOM_STORE_UPDATED, productStore);
     this.dispatch("util/updateShippingMethods", {})
     this.dispatch("util/updateFacillityGroups", {})
+    this.dispatch("util/updateProductCategories", {})
     this.dispatch("util/fetchProductIdentifiers", null, { root: true });
   }
 }

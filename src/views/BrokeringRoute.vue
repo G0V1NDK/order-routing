@@ -272,6 +272,7 @@ const currentEComStore = computed(() => store.getters["user/getCurrentEComStore"
 const userProfile = computed(() => store.getters["user/getUserProfile"])
 
 onIonViewWillEnter(async () => {
+  emitter.emit("presentLoader", { message: "Fetching rules", backdropDismiss: false })
   await store.dispatch("orderRouting/fetchCurrentRoutingGroup", props.routingGroupId)
   await fetchGroupHistory()
   store.dispatch("orderRouting/fetchRoutingHistory", props.routingGroupId)
@@ -288,6 +289,7 @@ onIonViewWillEnter(async () => {
   if(orderRoutings.value.length) {
     initializeOrderRoutings();
   }
+  emitter.emit("dismissLoader")
 })
 
 onBeforeRouteLeave(async (to) => {
