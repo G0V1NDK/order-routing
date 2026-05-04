@@ -16,4 +16,5 @@ export default interface UtilState {
     primary: string;
     secondary: string;
   };
+  productIdentificationTypes: any[];
 }

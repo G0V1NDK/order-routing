@@ -47,6 +47,9 @@ const getters: GetterTree<UtilState, RootState> = {
   },
   getProductIdentifier(state) {
     return state.productIdentifier
+  },
+  getProductIdentificationTypes(state) {
+    return state.productIdentificationTypes
   }
 }
 

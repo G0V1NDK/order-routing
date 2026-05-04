@@ -18,7 +18,8 @@ const utilModule: Module<UtilState, RootState> = {
     productIdentifier: {
       primary: "",
       secondary: ""
-    }
+    },
+    productIdentificationTypes: []
   },
   getters,
   actions,

@@ -30,6 +30,7 @@ const mutations: MutationTree<UtilState> = {
       primary: "",
       secondary: ""
     }
+    state.productIdentificationTypes = []
   },
   [types.UTIL_STATUSES_UPDATED](state, payload) {
     state.statuses = payload
@@ -39,6 +40,9 @@ const mutations: MutationTree<UtilState> = {
   },
   [types.UTIL_PRODUCT_IDENTIFIER_UPDATED](state, payload) {
     state.productIdentifier = payload
+  },
+  [types.UTIL_PRODUCT_IDENTIFICATION_TYPES_UPDATED](state, payload) {
+    state.productIdentificationTypes = payload
   }
 }
 export default mutations;
